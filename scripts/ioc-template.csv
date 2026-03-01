@@ -1,0 +1,56 @@
+Type,Value,Description,Severity,ThreatName,Source
+# ============================================================
+# CrowdStrike Hunting Library — IoC Template
+# Use with: Invoke-IoCCheck.ps1
+# RTR workflow: put iocs.csv && runscript -CloudFile="Invoke-IoCCheck" -CommandLine="-IoCFile C:\Windows\Temp\iocs.csv"
+#
+# Supported Types:
+#   hash-sha256   SHA-256 file hash
+#   hash-md5      MD5 file hash
+#   hash-sha1     SHA-1 file hash
+#   ip            Single IPv4 address
+#   ip-cidr       IPv4 CIDR range (e.g., 192.168.1.0/24)
+#   domain        Hostname or domain (matches DNS cache + hosts)
+#   url           Full URL (matches command lines and network connections)
+#   filepath      Exact file path (checks if file exists)
+#   filename      File name only (searched under staging paths or full disk)
+#   registry-key  Registry key path (checks for existence)
+#   registry-value Registry value name under Run/RunOnce keys
+#   service-name  Windows service name
+#   task-name     Scheduled task name or path fragment
+#   mutex         Named mutex (checks running process handles)
+#   process-name  Process executable name (matches running processes)
+#   pipe-name     Named pipe path fragment
+#   user-agent    HTTP User-Agent string fragment (matches command lines)
+#   yara          YARA rule (requires yara64.exe in PATH)
+#
+# Severity: CRITICAL, HIGH, MEDIUM, LOW, INFO
+# ============================================================
+#
+# --- EXAMPLE ENTRIES (delete these before deploying) ---
+#
+hash-sha256,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,Empty file hash (example only),INFO,ExampleThreat,Manual
+hash-md5,d41d8cd98f00b204e9800998ecf8427e,Empty file MD5 (example only),INFO,ExampleThreat,Manual
+hash-sha1,da39a3ee5e6b4b0d3255bfef95601890afd80709,Empty file SHA1 (example only),INFO,ExampleThreat,Manual
+ip,192.0.2.1,Example C2 IP (TEST-NET — documentation only),INFO,ExampleThreat,Manual
+ip-cidr,192.0.2.0/24,Example C2 CIDR range (TEST-NET — documentation only),INFO,ExampleThreat,Manual
+domain,malware.example.com,Example C2 domain,INFO,ExampleThreat,Manual
+url,http://malware.example.com/payload,Example malware download URL,INFO,ExampleThreat,Manual
+filepath,C:\Windows\Temp\evil.exe,Example malware file path,INFO,ExampleThreat,Manual
+filename,evil.exe,Example malware filename,INFO,ExampleThreat,Manual
+registry-key,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\EvilPersistence,Example run key,INFO,ExampleThreat,Manual
+registry-value,EvilPersistence,Example run key value name,INFO,ExampleThreat,Manual
+service-name,EvilSvc,Example malicious service name,INFO,ExampleThreat,Manual
+task-name,EvilTask,Example scheduled task name fragment,INFO,ExampleThreat,Manual
+mutex,Global\EvilMutex,Example mutex name,INFO,ExampleThreat,Manual
+process-name,evil.exe,Example malicious process name,INFO,ExampleThreat,Manual
+pipe-name,\\.\pipe\evil_pipe,Example named pipe,INFO,ExampleThreat,Manual
+user-agent,EvilBot/1.0,Example malicious User-Agent string,INFO,ExampleThreat,Manual
+#
+# --- REPLACE ABOVE EXAMPLES WITH REAL IoCs ---
+# Sources for IoC lists:
+#   CrowdStrike Falcon Intelligence:  Intelligence Portal → IoC Management → Export
+#   MISP:                             Export → CSV (map fields: type→Type, value→Value)
+#   OpenCTI/OpenTAXII:                STIX-to-CSV conversion
+#   AlienVault OTX:                   Pulse → Export Indicators → CSV
+#   Manual:                           Threat reports, vendor advisories, IR findings
