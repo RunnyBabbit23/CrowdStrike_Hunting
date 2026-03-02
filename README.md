@@ -53,6 +53,14 @@ docs/
 | [tor-anonymous-browser.md](queries/insider-threat/tor-anonymous-browser.md) | T1090.003 — Multi-hop proxy (Tor) | High |
 | [personal-vpn-clients.md](queries/insider-threat/personal-vpn-clients.md) | T1090.002 — External proxy (personal VPN) | Medium |
 
+### Credential Access (4 queries)
+
+| File | Technique | Severity |
+|---|---|---|
+| [lsass-memory-access.md](queries/credential-access/lsass-memory-access.md) | T1003.001 — LSASS memory | High |
+| [kerberoasting.md](queries/credential-access/kerberoasting.md) | T1558.003 — Kerberoasting | High |
+| [api-keys-and-secrets-in-files.md](queries/credential-access/api-keys-and-secrets-in-files.md) | T1552.001 / T1552.004 — Credentials in files / Private keys | High |
+
 ### Cloud — AWS (7 queries)
 
 | File | Technique | Severity |
